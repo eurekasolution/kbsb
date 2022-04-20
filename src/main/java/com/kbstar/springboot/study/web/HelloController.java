@@ -1,6 +1,8 @@
 package com.kbstar.springboot.study.web;
 
+import com.kbstar.springboot.study.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -31,5 +33,16 @@ public class HelloController {
     public String hello()
     {
         return "hello";
+    }
+
+    /* 08. http://localhost:8080/hello/dto?name=홍길동&age=12
+            http://localhost:8080/hello/dto/?name=홍길동&age=12
+     */
+
+    @GetMapping("/hello/dto")
+    public HelloResponseDto helloDto(@RequestParam("name") String name,
+                                     @RequestParam("age") int age)
+    {
+        return new HelloResponseDto(name, age);
     }
 }
