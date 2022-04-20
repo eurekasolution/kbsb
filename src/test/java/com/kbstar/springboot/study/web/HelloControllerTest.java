@@ -1,4 +1,6 @@
-package web;
+package com.kbstar.springboot.study.web;
+
+import com.kbstar.springboot.study.web.HelloController;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,18 +14,35 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(controllers=HelloController.class)
+@WebMvcTest(controllers= HelloController.class)
 public class HelloControllerTest {
+
+
     @Autowired
     private MockMvc mvc;
+
 
     @Test
     public void helloReturnTest() throws Exception
     {
         String hello = "hello";
 
+        mvc.perform(get("/hello"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(hello));
+
     }
 
 }
+
+/*
+전체구조는 main쪽의 구조와 같아야 한다.
+
+@ExtendWith , 이전에는 @RunWith
+@WebMvcTest
+    @Controller
+@Autowired 자동주입
+    field, constructor, setter
+
+ */
