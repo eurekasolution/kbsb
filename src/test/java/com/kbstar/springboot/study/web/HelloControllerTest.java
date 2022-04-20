@@ -45,4 +45,10 @@ public class HelloControllerTest {
 @Autowired 자동주입
     field, constructor, setter
 
+04. Lombok 설치
+앞으로 할 일( Lombok  : 생성자, getter/setter를 자동으로 처리)
+
+Ctrl+Shift+A
+plugins => Lombok 설치 확인
+build.gradle에 추가
  */
