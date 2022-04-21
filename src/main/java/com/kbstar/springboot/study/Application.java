@@ -23,3 +23,32 @@ public class Application {
 // -> Apply
 // JSP : MVC Model
 //      Model, View, Controller
+
+// 10.  http://localhost:8080/hello/dto/?name=홍길동&age=78
+
+/*
+    11. JPA
+    Java Persistence API : 자바 지속성 API
+    클래스 <-> DB 자동 Mapping
+    기존 방식 : 프로그래밍의 대부분이 Query
+    ORM(Object Relational Mapping)
+    ==> SQL의 종속성에서 벗어나게 하겠다.
+
+    CRUD ( Create, Read,  Update, Delete)
+        조회 : Member member = jpa.find(memberId)
+    JPA를 사용할 때의 장점 : 수정이 매우 간단하다.(유지보수)
+        객체(Class)가 변경되면 , 알아서 DB에 Update Query 날라간다.
+
+    +--------------------------+
+    |  Java Application        |
+    |  +--------------------+  |
+    |  | JPA                |  |
+    |  |  +--------------+  |  |           +----------+
+    |  |  |   JDBC API   |- |- |----SQL--->|   DB     |
+    |  |  |              |<-|- |---------- |          |
+    |  |  +--------------+  |  |           + ---------+
+    |  +--------------------+  |
+    +-------------------------+
+ */
+
+

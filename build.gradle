@@ -32,5 +32,9 @@ dependencies {
     testImplementation('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
 
+    // 12. JPA : use in-memory databse H2DB ==> Sync
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('com.h2databse:h2')
+
     testImplementation ('org.springframework.boot:spring-boot-starter-test')
 }
