@@ -44,12 +44,14 @@ public class PostsApiControllerTest {
         String content = "test content";
         String author = "test author";
 
-        //PostsSaveRequestDto requestDto = PostsSaveRequestDto
-        //                                    .builder()
-        //                                        .title(title)
-        //                                        .content(content)
-        //                                        .author(author)
-        //                                    .build();
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto
+                                            .builder()
+                                                .title(title)
+                                                .content(content)
+                                                .author(author)
+                                           .build();
+        System.out.println("-------------- requestDto.title = " + requestDto.getTitle());
+
         // http://localhost:12345/api/v1/posts
         /*
         21 단위테스트
@@ -66,8 +68,8 @@ public class PostsApiControllerTest {
 
          */
 
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
-                .title(title).content(content).author("author").build();
+        //PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+        //        .title(title).content(content).author("author").build();
 
         System.out.println("-------------- dto title = " + requestDto.getTitle());
 
