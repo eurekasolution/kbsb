@@ -4,6 +4,7 @@ import com.kbstar.springboot.study.service.PostsService;
 import com.kbstar.springboot.study.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /*
@@ -37,9 +38,10 @@ public class PostsApiController {
     private final PostsService postsService;
 
     @PostMapping("/api/v1/posts")
-    public Long save(PostsSaveRequestDto requestDto)
+    public Long save(@RequestBody PostsSaveRequestDto requestDto)
     {
         System.out.println("-------------- Controller -> Service");
+        System.out.println("requestDto.title = " + requestDto.getTitle());
         return postsService.save(requestDto);
     }
 }

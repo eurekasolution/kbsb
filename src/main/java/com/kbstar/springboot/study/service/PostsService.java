@@ -4,7 +4,9 @@ import com.kbstar.springboot.study.domain.posts.PostsRepository;
 import com.kbstar.springboot.study.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import javax.transaction.Transactional;
+
 
 /*
     19. Service 등록
@@ -27,6 +29,9 @@ public class PostsService {
     public Long save(PostsSaveRequestDto requestDto)
     {
         System.out.println("------------------ Post Service");
+        System.out.println("title = " + requestDto.getTitle());
+        System.out.println("content = " + requestDto.getContent());
+        System.out.println("author = " + requestDto.getAuthor());
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
