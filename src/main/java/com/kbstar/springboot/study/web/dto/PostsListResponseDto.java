@@ -5,30 +5,19 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-/*
-    23.. Request에 대한 응답 데이터 만들기
-
-          1
-                 Dto(4)
-          2
-                Entity(5)
-          3
-
-          5를 이용해 4번을 만들기
- */
-
 @Getter
-public class PostsResponseDto {
+public class PostsListResponseDto {
     private Long id;
     private String title;
     //private String content;
     private String author;
+    private LocalDateTime modifiedDate;
 
-    public PostsResponseDto(Posts entity)
+    public PostsListResponseDto(Posts entity)
     {
         this.id = entity.getId();
         this.title = entity.getTitle();
-       // this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.modifiedDate = entity.getModifiedDate();
     }
 }

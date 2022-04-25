@@ -2,13 +2,17 @@ package com.kbstar.springboot.study.service;
 
 import com.kbstar.springboot.study.domain.posts.Posts;
 import com.kbstar.springboot.study.domain.posts.PostsRepository;
+import com.kbstar.springboot.study.web.dto.PostsListResponseDto;
 import com.kbstar.springboot.study.web.dto.PostsResponseDto;
 import com.kbstar.springboot.study.web.dto.PostsSaveRequestDto;
 import com.kbstar.springboot.study.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 /*
@@ -67,5 +71,19 @@ public class PostsService {
         return new PostsResponseDto(posts);
     }
 
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc()
+    {
+        return postsRepository
+                .finalAllDesc()
+                .stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    /*
+    .map(PostListResponseDto::new)
+    = .map(posts->new PostListResponseDto(posts))
+     */
 
 }
