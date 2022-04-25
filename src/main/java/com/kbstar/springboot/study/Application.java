@@ -2,12 +2,21 @@ package com.kbstar.springboot.study;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 // Alt+Enter
 
 // 01. SpringBoot를 자동설정
 // 여기서 부터 설정을 읽는다.
 // 항상 프로젝트의 최상단에 위치
+
+/*
+32 : JPA Auditing을 위한 어노테이션만 추가하면 끝
+    다시 실행시킨 후 h2-console에 들어가서 필드가 추가된 것을 확인
+    단위 테스트
+        PostsRepositoryTest에 다시 넣고, 검색하는 기능을 확인
+ */
+@EnableJpaAuditing
 @SpringBootApplication
 public class Application {
     public static void main(String[] args)
