@@ -23,9 +23,21 @@
 {{>layout/header}}
     <div class="row">
         <div class="col text-primary">
-            index.mustache 머스터치 적용
+            스프링 부트 게시판
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            // 버튼 만들고, 클릭했을 때, /posts/save 이동하도록
+            <button class="btn btn-primary" onClick="location.href='/posts/printWrite' ">
+                <span class="material-icons">edit</span> 글쓰기
+            </button>
+        </div>
+    </div>
+
+
+
+
 {{>layout/footer}}
 <!--
 </div>
