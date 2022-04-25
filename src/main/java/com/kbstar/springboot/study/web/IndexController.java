@@ -20,4 +20,9 @@ public class IndexController {
     http://kbstar.com/
     query가 없으면 index를 리턴한다.
         index.mustache 파일이 있으면 이 파일이 index파일을 대체한다.
+
+    header, tail 분리해서, 구조를 단순화시키기
+
+    resources/templates/layout 폴더
+                               /header.mustache
  */
