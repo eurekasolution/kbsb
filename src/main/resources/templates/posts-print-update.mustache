@@ -4,14 +4,9 @@
 <div class="row">
     <div class="col">
         <h5 class="text-primary">
-            <span class="material-icons">edit</span> 글쓰기
+            <span class="material-icons">edit</span> 글수정하기
         </h5>
     </div>
-
-    <div class="row">
-        <div class="col" id="debug"></div>
-    </div>
-
 
     <form>
         <div class="row">
@@ -19,7 +14,7 @@
                 제목
             </div>
             <div class="col colLine">
-                <input type="text" name="title" id="title" class="form-control" required placeholder="제목 입력">
+                <input type="text" name="title" id="title" value="{{posts.title}}" class="form-control" required placeholder="제목 입력">
             </div>
         </div>
         <div class="row">
@@ -27,7 +22,7 @@
                 작성자
             </div>
             <div class="col colLine">
-                <input type="text" name="author" id="author" class="form-control" required placeholder="작성자">
+                <input type="text" name="author" id="author" value="{{posts.author}}" readonly class="form-control" required placeholder="작성자">
             </div>
         </div>
 
@@ -36,16 +31,14 @@
                 내용
             </div>
             <div class="col colLine">
-                <textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력하세요"></textarea>
+                <textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력하세요">{{posts.content}}</textarea>
             </div>
         </div>
 
         <div class="row">
             <div class="col colLine text-center">
-                <button type="button" id="btn-write" class="btn btn-primary">완료</button>
+                <button type="button" id="btn-update" class="btn btn-outline-success">변경완료</button>
                 <button type="button" class="btn btn-primary" onClick="location.href='/'">목록</button>
-
-                <a href="http://kbstar.com" class="btn btn-danger">KBSTAR</a>
 
             </div>
         </div>
