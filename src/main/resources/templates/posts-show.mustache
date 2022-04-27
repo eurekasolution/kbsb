@@ -1,0 +1,51 @@
+<!-- layout/posts-show.mustache -->
+{{>layout/header}}
+
+<div class="row">
+    <div class="col">
+        <h5 class="text-primary">
+            <span class="material-icons">edit</span> 글내용 보기
+        </h5>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2 d-none col-md-2 d-md-block colLine">
+        제목
+    </div>
+    <div class="col colLine">
+        실제제목
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2 d-none col-md-2 d-md-block colLine">
+        작성자
+    </div>
+    <div class="col colLine">
+        작성자이름
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-2 d-none col-md-2 d-md-block colLine">
+        내용
+    </div>
+    <div class="col colLine">
+        실제 내용
+    </div>
+</div>
+
+<div class="row">
+    <div class="col colLine text-center">
+        <button type="button" id="btn-update" class="btn btn-primary">수정</button>
+        <button type="button" id="btn-delete" class="btn btn-primary">삭제</button>
+        <button type="button" id="btn-list" class="btn btn-primary" onClick="location.href='/' ">목록</button>
+
+    </div>
+</div>
+
+<!--
+<script src="/js/app/index.js"></script>
+-->
+
+{{>layout/footer}}

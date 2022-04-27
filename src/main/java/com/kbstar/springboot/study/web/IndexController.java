@@ -42,6 +42,12 @@ public class IndexController {
         return "posts-print-write";
     }
 
+    @GetMapping("/posts/show/{id}")
+    public String postShow()
+    {
+
+    }
+
 }
 
 /*
