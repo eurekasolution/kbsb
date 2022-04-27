@@ -7,7 +7,10 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /* 31 : JPA Auditing (감시)
     게시글의 등록, 수정날짜를 자동 관리
@@ -25,8 +28,26 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTimeEntity {
     @CreatedDate
-    private LocalDateTime createDate;
+    //private LocalDateTime createDate;
+    private String createDate ;
 
     @LastModifiedDate
-    private LocalDateTime modifiedDate;
+    //private LocalDateTime modifiedDate;
+    private String modifiedDate ;
+
+    // 해당 엔티티를 저장하기 이전에 실행
+    @PrePersist
+    public void onPrePersist()
+    {
+        this.createDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        this.modifiedDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    }
+
+    // 해당 엔티티를 수정하기 이전에 실행
+    @PreUpdate
+    public void onPreUpdate()
+    {
+        this.modifiedDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+    }
+
 }

@@ -11,7 +11,8 @@ public class PostsListResponseDto {
     private String title;
     //private String content;
     private String author;
-    private LocalDateTime modifiedDate;
+    //private LocalDateTime modifiedDate;
+    private String modifiedDate;
 
     public PostsListResponseDto(Posts entity)
     {
