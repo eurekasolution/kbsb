@@ -34,7 +34,7 @@ var main = {
             alert(error);
             $("#debug").html(error);
             alert(JSON.stringify(error));
-        })
+        });
     },
     update : function() {
         let id = $("#id").val();

@@ -3,8 +3,13 @@
 var main = {
     init : function() {
         var _this = this;
+
         $('#btn-write').on('click', function() {
             _this.save();
+        });
+
+        $('#btn-update').on('click', function() {
+            _this.update();
         });
     },
 
@@ -30,6 +35,29 @@ var main = {
             $("#debug").html(error);
             alert(JSON.stringify(error));
         })
+    },
+    update : function() {
+        let id = $("#id").val();
+        //alert('수정할 글 번호 = ' + id);
+        var data = {
+            title: $('#title').val(),
+            content: $('#content').val()
+        };
+
+        $.ajax({
+            type: 'PUT',
+            dataType: 'json',
+            url: '/api/v1/posts/' + id,    // localhost:8080/api/v1/posts/3
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        })
+        .done(function(){
+            alert('변경되었습니다.');
+            location.href='/';
+        })
+        .fail(function(error){
+            alert(error);
+        });
     }
 }
 
