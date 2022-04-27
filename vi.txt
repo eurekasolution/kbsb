@@ -23,8 +23,8 @@
         a : after cursor
         o : next line of cursor
 
-5. Shift-K
+5. Shift-J  : 다음줄을 현재줄에 붙이기
 
-5. file 이동
+6. file 이동
         :e test.txt     <- move to test.txt
         :e #            <- move to prev page
