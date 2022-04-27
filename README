@@ -1,4 +1,16 @@
 
+create table posts (
+    id  bigint(20) auto_increment,
+    title   varchar(200),
+    content text(4000),
+    author  char(200),
+    create_date datetime,
+    modified_date datetime,
+    primary key(id)
+);
+
+
+
 조회
 +-----------------------------+
 |  Java Application           |
@@ -23,6 +35,8 @@
 |   +-----------+              +------------+ |
 |                                             |
 +---------------------------------------------+
+
+
 
 
 저장

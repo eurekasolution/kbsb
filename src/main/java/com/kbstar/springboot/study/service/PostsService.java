@@ -65,7 +65,7 @@ public class PostsService {
     public PostsResponseDto findById(Long id)
     {
         Posts posts = postsRepository.findById(id).orElseThrow(
-                ()-> new IllegalArgumentException("No id for Post indById(id).o: " + id)
+                ()-> new IllegalArgumentException("No id for Post idById(id).o: " + id)
         );
 
         return new PostsResponseDto(posts);
