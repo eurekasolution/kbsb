@@ -27,10 +27,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col colLine">
             <button class="btn btn-primary" onClick="location.href='/posts/printWrite' ">
                 <span class="material-icons">edit</span> 글쓰기
             </button>
+        </div>
+
+        <div class="col colLine text-end">
+            {{#userName}}
+                <button type="button" class="btn btn-success" onClick="location.href='/logout'">{{userName}} 로그아웃</button>
+            {{/userName}}
+
+            {{^userName}}
+                <button type="button" class="btn btn-primary" onClick="location.href='/oauth2/authorization/google'">구글 로그인</button>
+            {{/userName}}
+
         </div>
     </div>
 
