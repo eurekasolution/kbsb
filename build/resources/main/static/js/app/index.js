@@ -110,7 +110,11 @@ var main = {
         .done(function(data){
             alert('추천되었습니다. :' + data);
             let idRec = $("#idRec");
-            idRec.val( parseInt(idRec.val()) + 1  );
+            alert('idRec = ' + idRec);
+
+            let newRec = parseInt(idRec.html()) +1;
+            alert('newRec = ' + newRec);
+            idRec.html(newRec);
         })
         .fail(function(error){
             alert(JSON.stringify(error));

@@ -108,9 +108,11 @@ var main = {
             contentType: 'application/json; charset=utf-8'
         })
         .done(function(data){
-            alert('추천되었습니다. :' + data);
+            alert('추천되었습니다. :');
+
             let idRec = $("#idRec");
-            idRec.val( parseInt(idRec.val()) + 1  );
+            let newRec = parseInt(idRec.html()) +1;
+            idRec.html(newRec);
         })
         .fail(function(error){
             alert(JSON.stringify(error));
