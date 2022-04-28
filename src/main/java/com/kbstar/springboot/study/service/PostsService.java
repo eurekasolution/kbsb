@@ -7,6 +7,7 @@ import com.kbstar.springboot.study.web.dto.PostsResponseDto;
 import com.kbstar.springboot.study.web.dto.PostsSaveRequestDto;
 import com.kbstar.springboot.study.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,7 @@ import java.util.stream.Collectors;
 @Service
 public class PostsService {
     private final PostsRepository postsRepository;
+
 
     @Transactional
     public Long save(PostsSaveRequestDto requestDto)
@@ -67,6 +69,13 @@ public class PostsService {
     {
         return postsRepository.updateView(id);
     }
+
+    @Transactional
+    public int increaseRecommend(Long id)
+    {
+        return postsRepository.increaseRecommend(id);
+    }
+
 
     @Transactional
     public void delete(Long id)

@@ -5,6 +5,7 @@ var main = {
         var _this = this;
 
         $('#btn-write').on('click', function() {
+
             _this.save();
         });
 
@@ -15,6 +16,7 @@ var main = {
         $('#btn-delete').on('click', function() {
             _this.delete();
         });
+
     },
 
     save : function() {
@@ -87,7 +89,6 @@ var main = {
         {
             // 취소..
         }
-
     }
 }
 
