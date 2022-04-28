@@ -17,6 +17,11 @@ var main = {
             _this.delete();
         });
 
+        $('#btn-rec').on('click', function() {
+
+            _this.rec();
+        });
+
     },
 
     save : function() {
@@ -89,6 +94,28 @@ var main = {
         {
             // 취소..
         }
+    } ,
+
+    rec : function() {
+        let id = $("#id").val();
+        //alert('삭제할 글 번호 : '+ id);
+
+
+        $.ajax({
+            type: 'POST',
+            url: '/api/v1/rec/' + id,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8'
+        })
+        .done(function(data){
+            alert('추천되었습니다. :' + data);
+            let idRec = $("#idRec");
+            idRec.val( parseInt(idRec.val()) + 1  );
+        })
+        .fail(function(error){
+            alert(JSON.stringify(error));
+        });
+
     }
 }
 

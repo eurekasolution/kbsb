@@ -54,6 +54,12 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
+    @PostMapping("/api/v1/rec/{id}")
+    public int increaseRecommend(@PathVariable Long id)
+    {
+        return postsService.increaseRecommend(id);
+    }
+
     @DeleteMapping("/api/v1/posts/{id}")
     public Long delete(@PathVariable Long id)
     {
