@@ -1,6 +1,7 @@
 package com.kbstar.springboot.study.domain.posts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -22,7 +23,11 @@ MyBatis : DAO : Data Access Object
  */
 public interface PostsRepository  extends JpaRepository<Posts, Long> {
     @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
-    List<Posts> finalAllDesc();
+    List<Posts> findAllDesc();
+
+    @Modifying  // 데이터에 영향을 주는 insert, update, delete
+    @Query("UPDATE Posts p SET p.view = p.view + 1 WHERE p.id = :id ")
+    int updateView(Long id);
 }
 
 /*

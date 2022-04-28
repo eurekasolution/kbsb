@@ -49,7 +49,13 @@ public class Posts extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT", nullable=false)
     private String content;
 
+    @Column(length = 100, nullable=false)
     private String author;
+
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int view;
+
+    // private int rec;
 
     // 복제생성자, Copy Constructor
     @Builder

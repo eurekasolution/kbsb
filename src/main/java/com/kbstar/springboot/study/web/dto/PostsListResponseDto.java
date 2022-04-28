@@ -11,6 +11,7 @@ public class PostsListResponseDto {
     private String title;
     //private String content;
     private String author;
+    private int view;
     //private LocalDateTime modifiedDate;
     private String modifiedDate;
 
@@ -20,5 +21,6 @@ public class PostsListResponseDto {
         this.title = entity.getTitle();
         this.author = entity.getAuthor();
         this.modifiedDate = entity.getModifiedDate();
+        this.view = entity.getView();
     }
 }

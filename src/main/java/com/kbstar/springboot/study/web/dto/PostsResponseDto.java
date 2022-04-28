@@ -23,6 +23,7 @@ public class PostsResponseDto {
     private String title;
     private String content;
     private String author;
+    private int view;
 
     public PostsResponseDto(Posts entity)
     {
@@ -30,5 +31,6 @@ public class PostsResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.author = entity.getAuthor();
+        this.view = entity.getView();
     }
 }
