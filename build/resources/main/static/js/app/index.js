@@ -108,12 +108,10 @@ var main = {
             contentType: 'application/json; charset=utf-8'
         })
         .done(function(data){
-            alert('추천되었습니다. :' + data);
-            let idRec = $("#idRec");
-            alert('idRec = ' + idRec);
+            alert('추천되었습니다. :');
 
+            let idRec = $("#idRec");
             let newRec = parseInt(idRec.html()) +1;
-            alert('newRec = ' + newRec);
             idRec.html(newRec);
         })
         .fail(function(error){

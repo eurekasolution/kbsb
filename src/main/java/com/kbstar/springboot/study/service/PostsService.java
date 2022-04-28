@@ -8,8 +8,11 @@ import com.kbstar.springboot.study.web.dto.PostsSaveRequestDto;
 import com.kbstar.springboot.study.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 
 
 import java.util.List;
@@ -75,6 +78,13 @@ public class PostsService {
     {
         return postsRepository.increaseRecommend(id);
     }
+
+    @Transactional(readOnly = true)
+    public Page<Posts> pageList(Pageable pageable)
+    {
+        return postsRepository.findAll(pageable);
+    }
+
 
 
     @Transactional

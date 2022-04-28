@@ -49,19 +49,21 @@
 
     <div class="row">
         <div class="col-1 colLine">번호</div>
-        <div class="col-6 colLine">제목</div>
+        <div class="col-5 colLine">제목</div>
         <div class="col-2 colLine">작성자</div>
         <div class="col-2 colLine">수정일</div>
         <div class="col-1 colLine">읽음</div>
+        <div class="col-1 colLine">추천</div>
     </div>
 
     {{#posts}}
         <div class="row">
             <div class="col-1 colLine">{{id}}</div>
-            <div class="col-6 colLine ellipsis"><a href="/posts/show/{{id}}">{{title}}</a></div>
+            <div class="col-5 colLine ellipsis"><a href="/posts/show/{{id}}">{{title}}</a></div>
             <div class="col-2 colLine">{{author}}</div>
             <div class="col-2 colLine ellipsis">{{modifiedDate}}</div>
             <div class="col-1 colLine ellipsis">{{view}}</div>
+            <div class="col-1 colLine ellipsis">{{rec}}</div>
         </div>
     {{/posts}}
 

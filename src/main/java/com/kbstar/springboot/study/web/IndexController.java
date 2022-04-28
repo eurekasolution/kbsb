@@ -7,6 +7,9 @@ package com.kbstar.springboot.study.web;
 import com.kbstar.springboot.study.service.PostsService;
 import com.kbstar.springboot.study.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,9 +35,10 @@ public class IndexController {
      */
 
     @GetMapping("/")
-    public String index(Model model)
+    public String index(Model model, @PageableDefault(sort="id" ,direction = Sort.Direction.DESC, size=2) Pageable pageable)
     {
-        model.addAttribute("posts", postsService.findAllDesc() );
+        //model.addAttribute("posts", postsService.findAllDesc() );
+        model.addAttribute("posts", postsService.pageList(pageable));
         return "index";
     }
 
