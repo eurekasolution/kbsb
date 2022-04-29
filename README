@@ -166,7 +166,17 @@ Mustache의 표기법
     {{={{ }}=}}
 
 
+참고 코드
+if($upfile)
+{
+    $filename = $upfile_name
+    $size = $upfile_size
+}
 
+
+<form method=post enctype="multipart/form-data">
+    <input type="file" name="upfile">   // a.jpg
+</form>
 
 
 create table posts (

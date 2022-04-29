@@ -4,9 +4,11 @@ package com.kbstar.springboot.study.web;
     http://kbstar.com/
  */
 
+import com.kbstar.springboot.study.domain.posts.Posts;
 import com.kbstar.springboot.study.service.PostsService;
 import com.kbstar.springboot.study.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -37,13 +39,17 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model, @PageableDefault(sort="id" ,direction = Sort.Direction.DESC, size=2) Pageable pageable)
     {
+        Page<Posts> pageList = postsService.pageList(pageable);
+
         //model.addAttribute("posts", postsService.findAllDesc() );
-        model.addAttribute("posts", postsService.pageList(pageable));
+        model.addAttribute("posts", pageList);
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
 
         //model.addAttribute("hasPrev", pageable.hasPrevious());
 
+        model.addAttribute("hasPrev", pageList.hasPrevious());
+        model.addAttribute("hasNext", pageList.hasNext());
 
 
         return "index";

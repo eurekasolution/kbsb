@@ -45,6 +45,7 @@
         </div>
     </div>
 
+    <form method="POST" action="/posts/search">
     <div class="row">
         <div class="col-2 colLine">
             검색어
@@ -58,6 +59,7 @@
             </button>
         </div>
     </div>
+    </form>
 
     <!--  번호, 제목, 작성자, 수정일 -->
 
@@ -81,14 +83,32 @@
         </div>
     {{/posts}}
 
+    {{! Pagination }}
     <div class="row">
         <div class="col colLine text-center">
-            <a href="?page={{prev}}" class="btn btn-primary">
-                <span class="material-icons">chevron_left</span>
-            </a>
-            <a href="?page={{next}}" class="btn btn-primary">
-            <span class="material-icons">chevron_right</span>
-            </a>
+            {{#hasPrev}}
+                <button type="button" class="btn btn-primary btn-sm" onClick="location.href='?page={{prev}}'">
+                    <span class="material-icons">chevron_left</span>
+                </button>
+            {{/hasPrev}}
+            {{^hasPrev}}
+                <button type="button" class="btn btn-secondary btn-sm" disabled>
+                    <span class="material-icons">chevron_left</span>
+                </button>
+
+            {{/hasPrev}}
+
+            {{#hasNext}}
+                <button type="button" class="btn btn-primary btn-sm" onClick="location.href='?page={{next}}'">
+                <span class="material-icons">chevron_right</span>
+                </button>
+            {{/hasNext}}
+            {{^hasNext}}
+                <button type="button" class="btn btn-secondary btn-sm" disabled>
+                    <span class="material-icons">chevron_right</span>
+                </button>
+            {{/hasNext}}
+
         </div>
     </div>
 

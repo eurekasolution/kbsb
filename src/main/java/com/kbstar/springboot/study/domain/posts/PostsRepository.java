@@ -38,6 +38,9 @@ public interface PostsRepository  extends JpaRepository<Posts, Long> {
 
     //@Query("SELECT p FROM Posts p ORDER BY p.id DESC")
     //Page<Posts> findAllPage(@Param("pageable") Pageable pageable);
+
+    // Select * from Posts where title title like '%key%'
+    List<Posts> findByTitleContaining(String key);
 }
 
 /*
