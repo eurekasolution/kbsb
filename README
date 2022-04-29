@@ -79,6 +79,93 @@ Mustache의 표기법
 {{ company }}
 
 
+2. Section : 조건문, 반복문
+
+    {{#변수명}} ~~~~~ {{/변수명}}
+
+    2-1. 조건문
+    {
+        "name" :  "홍길동"
+    }
+
+    {{#name}}
+        이 사람의 이름은 {{name}} 입니다.
+    {{/name}}
+    {{^name}}
+        사람 없음.
+    {{/name}}
+
+
+    {
+        "person" : { "name": "홍길동", "age" : 12 },
+        "company" : { "name": "국민은행"}
+    }
+
+    {{#person}}
+        {{name}} 의 회사명은 {{company.name}} 입니다.
+    {{/person}}
+
+    2-2 반복문
+
+    {
+        "member" : [
+            {"name" : "홍길동"},
+            {"name" : "이순신"},
+            {"name" : "세종"}
+        ]
+    }
+
+    {{#member}}
+        {{name}}
+    {{/member}}
+
+
+    2-3. 반전 섹션 : not ^
+
+    {
+        "member" : []
+    }
+
+    {{#member}}
+        {{name}}
+    {{/member}}
+    {{^member}}
+        사람이 없네.
+    {{/member}}
+
+
+3. 부분 템플릿 : Partial Template   기호 : >
+
+    Java : import, PHP : include
+
+    {{>layout/header}}
+
+    ==== user.mustache ==
+    내 이름은 {{name}} 입니다.
+    =====================
+
+    ==== index.mustache ===
+
+    <div>Include</div>
+    {{#names}}
+        {{>user}}
+    {{/names}}
+
+    =======================
+
+4. 구분자({{ , }})     : 참고용
+
+    일반적 {{default_variable}}
+
+    {{=<% %>=}} 또는
+    {{=<? ?>=}}
+
+    <? name  ?>
+
+    되돌아오려면
+    {{={{ }}=}}
+
+
 
 
 
