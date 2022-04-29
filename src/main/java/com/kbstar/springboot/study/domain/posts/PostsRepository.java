@@ -40,7 +40,11 @@ public interface PostsRepository  extends JpaRepository<Posts, Long> {
     //Page<Posts> findAllPage(@Param("pageable") Pageable pageable);
 
     // Select * from Posts where title title like '%key%'
-    List<Posts> findByTitleContaining(String key);
+    // 검색 전체 목록
+    //List<Posts> findByTitleContaining(String key);
+
+    // 검색 정보를 페이지 단위 목록
+    Page<Posts> findByTitleContaining(String key, Pageable pageable);
 }
 
 /*

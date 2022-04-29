@@ -1,6 +1,5 @@
 <!--
-    33.
-    index.mustache
+    posts-search.mustache
 -->
 <!--
 <!doctype html>
@@ -23,7 +22,7 @@
 {{>layout/header}}
     <div class="row">
         <div class="col text-primary">
-            스프링 부트 게시판
+            스프링 부트 게시판 (검색)
         </div>
     </div>
     <div class="row">
@@ -72,7 +71,7 @@
         <div class="col-1 colLine">추천</div>
     </div>
 
-    {{#posts}}
+    {{#searchList}}
         <div class="row">
             <div class="col-1 colLine">{{id}}</div>
             <div class="col-5 colLine ellipsis"><a href="/posts/show/{{id}}">{{title}}</a></div>
@@ -81,7 +80,7 @@
             <div class="col-1 colLine ellipsis">{{view}}</div>
             <div class="col-1 colLine ellipsis">{{rec}}</div>
         </div>
-    {{/posts}}
+    {{/searchList}}
 
     {{! Pagination }}
     <div class="row">

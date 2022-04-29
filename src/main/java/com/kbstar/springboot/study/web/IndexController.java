@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
@@ -43,10 +45,9 @@ public class IndexController {
 
         //model.addAttribute("posts", postsService.findAllDesc() );
         model.addAttribute("posts", pageList);
+
         model.addAttribute("prev", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
-
-        //model.addAttribute("hasPrev", pageable.hasPrevious());
 
         model.addAttribute("hasPrev", pageList.hasPrevious());
         model.addAttribute("hasNext", pageList.hasNext());
@@ -71,6 +72,19 @@ public class IndexController {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("posts", dto);
         return "posts-show";
+    }
+
+    @GetMapping("/posts/search")
+    public String search(String keyword, Model model, @PageableDefault(sort="id" ,direction = Sort.Direction.DESC, size=2) Pageable pageable )
+    {
+        Page<Posts> searchList = postsService.search(keyword, pageable);
+
+        //model.addAttribute("posts", postsService.findAllDesc() );
+        model.addAttribute("searchList", searchList);
+
+
+
+        return "posts-search";
     }
 
     @GetMapping("/posts/update/{id}")

@@ -116,9 +116,14 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
-    public List<Posts> search(String keyword)
+    @Transactional(readOnly = true)
+    //public List<Posts> search(String keyword)
+    public Page<Posts> search(String keyword, Pageable pageable)
     {
-        List<Posts> postsList = postsRepository.findByTitleContaining(keyword);
+        //List<Posts> postsList = postsRepository.findByTitleContaining(keyword);
+        //return postsList;
+
+        Page<Posts> postsList = postsRepository.findByTitleContaining(keyword, pageable);
         return postsList;
     }
 
