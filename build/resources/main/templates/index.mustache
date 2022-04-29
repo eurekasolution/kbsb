@@ -45,6 +45,20 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-2 colLine">
+            검색어
+        </div>
+        <div class="col-8 colLine">
+            <input type="text" name="keyword" id="keyword" class="form-control" placeholder="검색어">
+        </div>
+        <div class="col colLine">
+            <button type="button" id="btn-search" class="btn btn-primary btn-sm form-control">
+                <span class="material-icons icon">search</span> 검색
+            </button>
+        </div>
+    </div>
+
     <!--  번호, 제목, 작성자, 수정일 -->
 
     <div class="row">
@@ -67,6 +81,16 @@
         </div>
     {{/posts}}
 
+    <div class="row">
+        <div class="col colLine text-center">
+            <a href="?page={{prev}}" class="btn btn-primary">
+                <span class="material-icons">chevron_left</span>
+            </a>
+            <a href="?page={{next}}" class="btn btn-primary">
+            <span class="material-icons">chevron_right</span>
+            </a>
+        </div>
+    </div>
 
 
 {{>layout/footer}}

@@ -39,6 +39,13 @@ public class IndexController {
     {
         //model.addAttribute("posts", postsService.findAllDesc() );
         model.addAttribute("posts", postsService.pageList(pageable));
+        model.addAttribute("prev", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
+
+        //model.addAttribute("hasPrev", pageable.hasPrevious());
+
+
+
         return "index";
     }
 

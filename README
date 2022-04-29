@@ -1,4 +1,87 @@
 
+
+http://localhost:8080/hello/dto/?name=홍길동&age=12
+
+JSON : JavaScript Object Notation
+
+{
+    "name" : "홍길동",
+    "age" : 12
+}
+
+{
+    "name" : "홍길동",
+    "age" : 12,
+    "company" : {
+        "name" : "국민은행",
+        "http" : "https://kbstar.com"
+    },
+    "address" : "서울"
+}
+
+{
+    "person" : {
+        "name" : "홍길동",
+        "age" : 12
+    },
+    "comapnay" : {
+        "name" : "국민은행",
+        "hq" : "서울"
+    }
+}
+
+
+{
+    "employee" : [
+        {
+            "name" : "홍길동",
+            "age" : 12
+        },
+        { "name" : "이순신",  "age" : 34 },
+        { "name" : "세종", "age" 45 }
+    ],
+
+    "employer" : [
+
+    }
+}
+
+Mustache의 표기법
+{{! comment  }}
+
+1. 변수  {{ 변수이름 }}
+
+{
+    "name" : "홍길동",
+    "age" : 12
+}
+                                 "<홍길동>"
+{{ name }}    {{! 홍길동 }}
+{{ age }}     {{!   12 }}
+{{ company }}  {{! none }}      &lt;홍길동&gt;
+{{{ name }}}   {{!  홍길동 }}    <홍길동>
+
+
+{
+    "name" : "홍길동",
+    "age" : 12,
+    "company" : {
+        "name" : "국민은행",
+        "http" : "https://kbstar.com"
+    },
+    "address" : "서울"
+}
+
+
+{{ name }}  --> 홍길동
+{{ company.name }}   --> 국민은행
+{{ company.http }}   --> https://kbstar.com
+{{ company }}
+
+
+
+
+
 create table posts (
     id  bigint(20) auto_increment,
     title   varchar(200),
