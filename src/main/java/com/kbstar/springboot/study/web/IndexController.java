@@ -83,6 +83,13 @@ public class IndexController {
         model.addAttribute("searchList", searchList);
 
 
+        model.addAttribute("prev", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
+
+        model.addAttribute("hasPrev", searchList.hasPrevious());
+        model.addAttribute("hasNext", searchList.hasNext());
+        model.addAttribute("keyword", keyword);
+
 
         return "posts-search";
     }
