@@ -4,6 +4,7 @@ package com.kbstar.springboot.study.web;
     http://kbstar.com/
  */
 
+import com.kbstar.springboot.study.config.auth.dto.SessionUser;
 import com.kbstar.springboot.study.domain.posts.Posts;
 import com.kbstar.springboot.study.service.PostsService;
 import com.kbstar.springboot.study.web.dto.PostsResponseDto;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -30,6 +32,10 @@ public class IndexController {
 //    }
 
     private final PostsService postsService;
+
+    // google Login
+    private final HttpSession httpSession;
+
     /*
         public IndexController(PostsService postsService)
         {
@@ -42,6 +48,14 @@ public class IndexController {
     public String index(Model model, @PageableDefault(sort="id" ,direction = Sort.Direction.DESC, size=2) Pageable pageable)
     {
         Page<Posts> pageList = postsService.pageList(pageable);
+
+        // google login
+        SessionUser user = (SessionUser)httpSession.getAttribute("user");
+        if(user != null)
+        {
+            model.addAttribute("userName", user.getName());
+        }
+
 
         //model.addAttribute("posts", postsService.findAllDesc() );
         model.addAttribute("posts", pageList);
